@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        {% block title %}
+        {% endblock %}
+
+        <link rel="stylesheet" href="{% static 'css/nav_style.css' %}"/>
+        {% block static_cssFile %}
+        {% endblock %}
+        
+        {% block static_jsFile %}
+        <script src=""></script>
+        {% endblock %}
+        
+    </head>
+    <body>
+        {% block navBar %}
+        <nav class="navbar-userinterface">
+            <div class="navbar-items" id="navbar">
+                <a href="{% url 'admin_panel' %}"><img src="{% static 'imgs/logo-no-background.png' %}" alt="BookHive" width="100px" class ="logo"> </a>
+                <ul>
+                    <li><a class="nav-home" href="{% url 'admin_panel' %}" >Home</a></li>
+                    <li><a class="nav-add" href="{% url 'add_book' %}">Add Book</a></li>
+                    <li><a class="nav-available" href="{% url 'availableBooksAdmin' %}">Available Books</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        <br>
+        {% endblock %}
+    
+        {% block bodyContent %}
+        {% endblock %}
+    </body>
+</html>

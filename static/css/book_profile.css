@@ -1,0 +1,220 @@
+:root {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent-color: #3a86ff;
+    --success-color: #4caf50;
+    --warning-color: #ffb74d;
+    --error-color: #f44336;
+    --hover-bg: #2a2a2a;
+    --border-color: #333;
+    --card-bg: #1e1e1e;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.book-header {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+}
+
+.book-cover {
+    width: 250px;
+    height: 350px;
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.book-info {
+    flex-grow: 1;
+}
+
+h1 {
+    color: var(--accent-color);
+    margin: 0 0 15px 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.book-meta {
+    color: var(--text-secondary);
+    margin: 15px 0;
+    font-size: 1.1rem;
+}
+
+.book-meta span {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.book-description {
+    background-color: var(--bg-secondary);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+    line-height: 1.7;
+}
+
+.book-description h3 {
+    margin-top: 0;
+    color: var(--accent-color);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 30px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: var(--hover-bg);
+}
+
+.availability {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.available {
+    background-color: rgba(76, 175, 80, 0.15);
+    color: #81c784;
+}
+
+.unavailable {
+    background-color: rgba(244, 67, 54, 0.15);
+    color: #ef9a9a;
+}
+
+.div-borrow {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.borrow, .return-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, var(--success-color), #3d8b40);
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 180px;
+}
+
+.return-btn {
+    background: linear-gradient(135deg, #17C3B2, #14a396);
+}
+
+.borrow:hover, .return-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.borrow:active, .return-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .book-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .book-cover {
+        width: 200px;
+        height: 300px;
+        margin: 0 auto 25px;
+    }
+    
+    .book-meta {
+        text-align: left;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px 15px;
+        margin: 20px 10px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    th, td {
+        padding: 12px 10px;
+        font-size: 0.95rem;
+    }
+    
+    .borrow, .return-btn {
+        width: 100%;
+        margin: 10px 0;
+    }
+}

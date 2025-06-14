@@ -1,0 +1,39 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/login.css'%}">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static '..static/css/login.css' %}">
+        <title>Login</title>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Login</h2>
+            <div id="error-message" class="error-message" style="display: none;">
+                <span class="error-icon">!</span>
+                <span class="error-text"></span>
+                <button class="close-error">&times;</button>
+            </div>
+            <div id="loginForm">
+                {% csrf_token %}
+                <div class="username_box">
+                    <label for="username">Username:</label>
+                    <input type="text" class="username" name="username" placeholder="username..">
+                </div>
+
+                <div class="password_box">
+                    <label for="password">Password:</label>
+                    <input type="password" class="password" name="password" placeholder="password..">
+                </div>
+                <button class="submit">Login</button>
+                <br>
+            </div>
+            <br>
+            <label>Don't have account?</label>
+            <a href="{% url 'register' %}">Sign up now!</a>
+        </div>
+        <script src="{% static 'js/login.js' %}"></script>
+    </body>
+</html>

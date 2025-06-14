@@ -1,0 +1,224 @@
+:root {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent-color: #3a86ff;
+    --success-color: #4caf50;
+    --hover-bg: #2a2a2a;
+    --border-color: #333;
+    --card-bg: #1e1e1e;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+article {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent-color);
+}
+
+h2 {
+    text-align: center;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+h3.title {
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    margin: 15px 0 10px;
+    line-height: 1.3;
+    min-height: 3.6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.author, .category, .description, .is-available {
+    color: var(--text-secondary);
+    margin: 8px 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.author::first-letter, 
+.category::first-letter, 
+.description::first-letter,
+.title::first-letter {
+    text-transform: capitalize;
+}
+
+.description {
+    flex-grow: 1;
+    margin: 15px 0;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    text-align: left;
+}
+
+.book-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.borrow-btn, .details-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.borrow-btn {
+    background: linear-gradient(135deg, var(--success-color), #3d8b40);
+    color: white;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
+}
+
+.borrow-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+    background: linear-gradient(135deg, #5cb85c, #4cae4c);
+}
+
+.borrow-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.details-btn {
+    background: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+}
+
+.details-btn:hover {
+    background: rgba(58, 134, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.is-available {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.available {
+    background-color: rgba(76, 175, 80, 0.15);
+    color: #81c784;
+}
+
+.unavailable {
+    background-color: rgba(244, 67, 54, 0.15);
+    color: #ef9a9a;
+}
+
+.book-cover {
+    width: 160px;
+    height: 220px;
+    margin: 0 auto 15px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px 15px;
+    }
+    
+    article {
+        padding: 20px 15px;
+    }
+    
+    h3.title {
+        font-size: 1.3rem;
+    }
+    
+    .book-cover {
+        width: 140px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .books-grid {
+        grid-template-columns: 1fr;
+        padding: 15px 10px;
+    }
+    
+    article {
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    .book-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .borrow-btn, .details-btn {
+        width: 100%;
+    }
+}

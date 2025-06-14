@@ -1,0 +1,35 @@
+{% extends "base_admin.html" %}
+
+{% load static %}
+
+{% block title %}
+<title>Available Books</title>
+{% endblock %}
+
+{% block static_cssFile %}
+<link rel="stylesheet" href="{% static 'css/available_books.css' %}">
+{% endblock %}
+
+{% block static_jsFile %}
+    <script src=""></script>
+{% endblock %}
+
+{% block bodyContent %}
+<h2>All available books</h2>
+{% for book in allBooks %}
+<article>
+    <h6>{{ book.id }}</h6>
+    <h2 class="title">{{ book.name }}</h2>
+    <p class="author">{{ book.author }}</p>
+    <p class="category">{{ book.category }}</p>
+    {% if book.available %}
+    <p class="is-available" style="color: rgb(64, 192, 87);">Available</p>
+    {% else %}
+    <p class="is-available" style="color: rgb(230, 34, 77);">Not Available</p>
+    {% endif %}
+    <p class="descreption">{{ book.description }}</p>
+    <button class="btn" onclick="">Edit</button>
+</article>
+{% endfor %}
+<script src="{% static 'js/available_books.js' %}"></script>
+{% endblock %}

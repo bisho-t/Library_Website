@@ -1,0 +1,52 @@
+{% extends "base_user.html" %}
+
+{% load static %}
+
+{% block title %}
+<title>Book Profile</title>
+{% endblock %}
+
+{% block static_cssFile %}
+<link rel="stylesheet" href="{% static 'css/book_profile.css' %}">
+{% endblock %}
+
+{% block static_jsFile %}
+<script src=""></script>
+{% endblock %}
+
+{% block bodyContent %}
+<div class="container">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th>Book Name</th>
+            <td class="name">{{book.name}}</td>
+        </tr>
+        <tr>
+            <th>ID</th>
+            <td class="id">{{book.id}}</td>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td class="category">{{book.category}}</td>
+        </tr>
+        <tr>
+            <th>Author</th>
+            <td class="author">{{book.author}}</td>
+        </tr>
+        <tr>
+            <th>Availability</th>
+            {% if book.available %}
+            <td class="availability" style="color: rgb(64, 192, 87);">Available</td>
+            {% else %}
+            <td class="availability" style="color: rgb(230, 34, 77);">Not Available</td>
+            {% endif %}
+        </tr>
+    </table>
+    <p name="description" class="description">{{book.description}}</p>
+    <div class="div-borrow">
+        <button class="borrow">Borrow</button>
+    </div>
+</div>
+<script src="{% static 'js/book_profile.js' %}"></script>
+{% endblock %}

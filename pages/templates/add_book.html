@@ -1,0 +1,47 @@
+{% extends "base_admin.html" %}
+
+{% load static %}
+
+{% block title %}
+<title>Add book</title>
+{% endblock %}
+
+{% block static_cssFile %}
+<link rel="stylesheet" href="{% static 'css/add_new_book.css' %}">
+{% endblock %}
+
+{% block static_jsFile %}
+    <script src=""></script>
+{% endblock %}
+
+{% block bodyContent %}
+<div class="form">
+    <div method="POST">
+        {% csrf_token %}
+        <br>
+        <label for="bookid">Book ID:</label>
+        <input type="number" class="bookid" name="bookid" placeholder="book id.." required>
+        <br>
+    
+        <label for="bookname">Book Name:</label>
+        <input type="text" class="bookname" name="bookname" placeholder="book name.." required>
+        <br>
+    
+        <label for="author">Author:</label>
+        <input type="text" class="author" name="author" placeholder="author.." required>
+        <br>
+    
+        <label for="category">Category:</label>
+        <input type="text" class="category" name="category" placeholder="category.." required>
+        <br>
+    
+        <label for="description">Description:</label>
+        <textarea class="description" name="description" rows="15" cols="35" required></textarea>
+        <br>
+        <div class="buttons">
+            <button type="submit" class="submit">Add Book</button>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/add_new_book.js' %}"></script>
+{% endblock %}

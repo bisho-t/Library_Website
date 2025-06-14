@@ -1,0 +1,307 @@
+:root {
+    /* Modern color palette */
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --text-primary: #f0f0f0;
+    --text-secondary: #b0b0b0;
+    --accent-color: #5b8cff;
+    --accent-hover: #7ba1ff;
+    --border-color: #2a2a2a;
+    --hover-bg: #252525;
+    --card-bg: #1a1a1a;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Fira Code', 'Roboto Mono', monospace;
+    --border-radius: 12px;
+}
+
+/* Base styles */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    transition: var(--transition);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout */
+main {
+    padding: 2rem 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: calc(100vh - 160px);
+    
+    @media (min-width: 768px) {
+        padding: 3rem 2rem;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 300px;
+    text-align: left;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    margin: 2rem auto;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    background-color: rgba(26, 26, 26, 0.7);
+}
+
+.container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1.25rem;
+        margin: 1rem 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        width: 100%;
+    }
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 0;
+}
+
+h1 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+h2 { 
+    color: var(--accent-color);
+    font-size: 2rem; 
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    border-radius: 3px;
+}
+
+p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 65ch;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* Buttons */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+    padding: 0.8rem 2rem;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--accent-color);
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(91, 140, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.button:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(91, 140, 255, 0.3);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+.button.secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+.button.secondary:hover {
+    background-color: rgba(91, 140, 255, 0.1);
+}
+
+/* Forms and Tables */
+.contact {
+    margin-top: 3rem;
+    text-align: left;
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.contact h2 {
+    margin-bottom: 1.5rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1.5rem 0;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    background: var(--bg-secondary);
+}
+
+th, td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--hover-bg);
+    color: var(--accent-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Responsive Tables */
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    th, td {
+        padding: 0.75rem 0.5rem;
+    }
+}
+
+/* Form Elements */
+input, select, textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    transition: var(--transition);
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(91, 140, 255, 0.2);
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .container {
+        width: 95%;
+        padding: 1.5rem;
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.25rem;
+        border-radius: 0;
+        margin: 1rem 0;
+    }
+    
+    h1 { font-size: 1.75rem; }
+    h2 { 
+        font-size: 1.5rem;
+        padding-bottom: 0.5rem;
+    }
+    
+    .button {
+        width: 100%;
+        padding: 0.75rem;
+    }
+    .container {
+        width: 90%;
+        padding: 20px 15px;
+    }
+    
+    .contact table {
+        width: 100%;
+        font-size: 14px;
+    }
+}

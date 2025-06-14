@@ -1,0 +1,52 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/signup.css'%}">
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+        <title>Sign-up</title>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Sign-up</h2>
+            <div id="error-message" class="error-message" style="display: none;">
+                <span class="error-icon">!</span>
+                <span class="error-text"></span>
+                <button class="close-error">&times;</button>
+            </div>
+            <div id="signupForm">
+                {% csrf_token %}
+                <label for="username">Username:</label>
+                <input type="text" class="username" name="username" placeholder="username.." required>
+                <br>
+                
+                <label for="email">E-mail:</label>
+                <input type="email" class="email" name="email" placeholder="email.." required>
+                <br>
+                
+                <label for="password">Password:</label>
+                <input type="password" class="password" name="password" placeholder="password.." required>
+                <br>
+                
+                <label for="confirm-password">Confirm password:</label>
+                <input type="password" class="confirm-password" name="confirm-password" placeholder="confirm password.." required>
+                <br>
+                
+                <label for="usertype">Select user type:</label>
+                <select class="usertype" name="usertype" style="margin: 13px;">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <br>
+                <button type="submit" class="signup-button">Submit</button>
+            </div>
+            <br>
+            <label>Already have account?</label>
+            <a href="{% url 'login' %}">Login!</a>
+        </div>
+        <script src="{% static 'js/register.js' %}"></script>
+    </body>
+</html>

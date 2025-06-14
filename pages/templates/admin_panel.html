@@ -1,0 +1,62 @@
+{% extends "base_admin.html" %}
+
+{% load static %}
+
+{% block title %}
+<title>Admin Panel</title>
+{% endblock %}
+
+{% block static_cssFile %}
+<link rel="stylesheet" href="{% static 'css/interface.css' %}">
+{% endblock %}
+
+{% block static_jsFile %}
+    <script src=""></script>
+{% endblock %}
+
+{% block bodyContent %}
+<main>
+    <div class="container">
+        <h2>Welcome Admin!</h2>
+        <p>Manage the library collection and user interactions with ease.</p>
+        <p>The admin has full control over the library's collection and user interactions. They can add new books to the library, edit existing book information such as title, author, and genre, and also remove books from the collection if necessary.</p>
+        <p>Take a look on the navigation bar and see what you can do!</p>
+        <button onclick="location.href ='add_book/'" class="button">Try to add book!</button>
+    </div>
+    <section class = "contact">
+        <div class = "title">
+            <h3>Contact us</h3>
+        </div>
+        <div class= "info">
+            <table border="3">
+                <thead>
+                    <th>Name</th>
+                    <th>Id</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gad Amr</td>
+                        <td>20220095</td>
+                    </tr>
+                    <tr>
+                        <td>Rojeh wael</td>
+                        <td>20220135</td>
+                    </tr>
+                    <tr>
+                        <td>Bavly Safwat</td>
+                        <td>20220081</td>
+                    </tr>
+                    <tr>
+                        <td>Bishoy Moknea</td>
+                        <td>20220088</td>
+                    </tr>
+                    <tr>
+                        <td>Osama Mohamed</td>
+                        <td>20220055</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base_user.html" %}
+
+{% load static %}
+
+{% block title %}
+<title>Borrowed Books</title>
+{% endblock %}
+
+{% block static_cssFile %}
+<link rel="stylesheet" href="{% static 'css/borrowed_books.css' %}">
+{% endblock %}
+
+{% block static_jsFile %}
+
+{% endblock %}
+
+{% block bodyContent %}
+<h2>Borrowed Books</h2>
+{% csrf_token %}
+{% for book in borrowed %}
+<article>
+    <h6>{{ book.id }}</h6>
+    <h2 class="title">{{ book.name }}</h2>
+    <p class="author">{{ book.author }}</p>
+    <p class="category">{{ book.category }}</p>
+    <p class="descreption">{{ book.description }}</p>
+    <button class="view" onclick="">View</button>
+    <button class="return" onclick="">Return</button>
+</article>
+{% endfor %}
+<script src="{% static 'js/borrowed_books.js' %}"></script>
+{% endblock %}

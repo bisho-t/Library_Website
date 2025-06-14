@@ -1,0 +1,57 @@
+{% extends "base_admin.html" %}
+
+{% load static %}
+
+{% block title %}
+<title>Edit Book</title>
+{% endblock %}
+
+{% block static_cssFile %}
+<link rel="stylesheet" href="{% static 'css/edit_book_details.css' %}">
+{% endblock %}
+
+{% block static_jsFile %}
+{% endblock %}
+
+{% block bodyContent %}
+<h2>Edit Book</h2>
+<div class="form">
+    <div>
+        {% csrf_token %}
+        <div>
+            <label for="book_id">ID:</label>
+            <input type="text" class="book_id" name="book_id" value="{{book.id}}" readonly>
+        </div>
+        <br>
+    
+        <div>
+            <label for="book_name">Name:</label>
+            <input type="text" class="book_name" value="{{book.name}}" name="book_name" required>
+        </div>
+        <br>
+    
+        <div>
+            <label for="author">Author:</label>
+            <input type="text" class="author" value="{{book.author}}" name="author" required>
+        </div>
+        <br>
+    
+        <div>
+            <label for="category">Category:</label>
+            <input type="text" class="category" value="{{book.category}}" name="category">
+        </div>
+        <br>
+    
+        <div>
+            <label for="description">Description:</label><br>
+            <textarea class="description" name="description" rows="10" cols="50">{{book.description}}</textarea>
+        </div>
+        <br>
+        <div class="buttons">
+        <button class="submit">Edit Book</button>
+        <button class="delete">Delete Book</button>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/edit_book.js' %}"></script>
+{% endblock %}

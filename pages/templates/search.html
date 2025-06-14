@@ -1,0 +1,55 @@
+{% extends "base_user.html" %}
+
+{% load static %}
+
+{% block title %}
+<title>Search</title>
+{% endblock %}
+
+{% block static_cssFile %}
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
+{% endblock %}
+
+{% block static_jsFile %}
+<script src=""></script>
+{% endblock %}
+
+{% block bodyContent %}
+<h2>Book Search</h2>
+<div class="form">
+    <form method="POST" action="{% url 'search' %}">
+        {% csrf_token %}
+        <label for="searchtype">Search by:</label>
+        <select class="searchtype" name="searchtype">
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+            <option value="category">Category</option>
+        </select>
+        <br>
+        <input type="text" class="searchinput" placeholder="search.." name="searchinput">
+        <button type="submit" class="searchbutton">Search</button>
+        <br>
+    <form>
+</div>
+
+{% if input %}
+<h4>Your search results for "{{input}}" with ({{type}})</h4>
+<br>
+{% for book in books %}
+<article>
+    <h6>{{ book.id }}</h6>
+    <h2 class="title">{{ book.name }}</h2>
+    <p class="author">{{ book.author }}</p>
+    <p class="category">{{ book.category }}</p>
+    {% if book.available %}
+    <p class="is-available" style="color: rgb(64, 192, 87);">Available</p>
+    {% else %}
+    <p class="is-available" style="color: rgb(230, 34, 77);">Not Available</p>
+    {% endif %}
+    <p class="descreption">{{ book.description }}</p>
+    <button class="btn" onclick="">View</button>
+</article>
+{% endfor %}
+{% endif %}
+<script src="{% static 'js/search.js' %}"></script>
+{% endblock %}

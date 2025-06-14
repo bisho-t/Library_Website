@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/nav_style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/home_page.css' %}">
+        <title>Book Hive</title>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar-Homepage">
+            <div class="navbar-items" id="navbar">
+                <a href="{% url 'index' %}"><img src="{% static 'imgs/logo-no-background.png' %}" alt="BookHive" width="100px" class ="logo"> </a>
+                    <ul>
+                        <li><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                        <li><a class="nav-link" href="{% url 'login' %}">Login/Register</a></li>
+                    </ul>
+            </div>
+            </nav>
+        </header> 
+        <main>
+            <section id="about" >
+                <div class ="title">
+                    <h2>BookHive: Dive into Reading Madness!</h2>
+                </div>
+                <div class ="para">
+                    <p class="about">Your online sanctuary for book lovers! Dive into a world where stories come alive, and imagination knows no bounds. Whether you're a voracious reader, a casual browser, or a curious explorer, BookHive is your gateway to a universe of literary delights. From classic tales to contemporary bestsellers, our virtual shelves are stocked with a treasure trove of books waiting to be discovered.</p>
+                    <p>At BookHive, we believe in the transformative power of storytelling. That's why we've curated a collection that caters to every taste and age, ensuring there's something for everyone. Join our community of book enthusiasts and embark on a journey through the pages of your next favorite book. BookHive: where every book is a new adventure!</p>
+                    <br>
+                    <button type="button" onclick="location.href ='register/'">Sign up now!</button>
+                    <br>
+                    <br>
+                    <hr>
+                </div>
+            </section>
+        </main>    
+    </body>
+</html>

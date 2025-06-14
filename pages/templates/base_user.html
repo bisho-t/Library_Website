@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        {% block title %}
+        {% endblock %}
+
+        <link rel="stylesheet" href="{% static 'css/nav_style.css' %}"/>
+        {% block static_cssFile %}
+        {% endblock %}
+        
+        {% block static_jsFile %}
+        
+        {% endblock %}
+        
+    </head>
+    <body>
+        {% block navBar %}
+        <nav class="navbar-userinterface">
+            <div class="navbar-items" id="navbar">
+                <a href="{% url 'user_panel' %}"><img src="{% static 'imgs/logo-no-background.png' %}" alt="BookHive" width="100px" class ="logo"> </a>                
+                <ul>
+                    <li><a class="nav-home" href="{% url 'user_panel' %}" >Home</a></li>
+                    <li><a class="nav-search" href="{% url 'search' %}">Search</a></li>
+                    <li><a class="nav-available" href="{% url 'availableBooksUser' %}">Available Books</a></li>
+                    <li><a class="nav-borrowed" href="">Borrowed Books</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{% url 'index' %}">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        <br>
+        {% endblock %}
+        <script>
+            let borrowed_btn = document.getElementsByClassName('nav-borrowed')[0];
+            borrowed_btn.addEventListener('click', (e) =>{
+                e.preventDefault();
+                let logged = JSON.parse(window.sessionStorage.getItem('logged')).username;
+                location.href = 'http://127.0.0.1:8000/user_interface/borrowed_books/'+logged+'/';
+            })
+        </script>
+        {% block bodyContent %}
+        {% endblock %}
+    </body>
+</html>
